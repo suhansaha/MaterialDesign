@@ -1,9 +1,8 @@
 package in.suhan.materialdesign;
 
-
 import android.content.Context;
-import android.media.Image;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,35 +10,34 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.Collections;
 import java.util.List;
 
+
 /**
- * Created by suhan on 16/02/15.
+ * Created by ssaha8 on 17/02/2015.
  */
-public class DataAdapter extends RecyclerView.Adapter<DataAdapter.DataViewHolder> {
+public class DataAdapter extends RecyclerView.Adapter<DataAdapter.DataAdapterHolder> {
+    private List<Data> data;
     private Context context;
-    private LayoutInflater inflater;
-    List<Data> data = Collections.emptyList();
 
     public DataAdapter(Context context, List<Data> data){
-        inflater = LayoutInflater.from(context);
-        this.data = data;
         this.context = context;
-    }
-    @Override
-    public DataViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
-        View view = inflater.inflate(R.layout.drawer_list_item, viewGroup, false);
-        DataViewHolder holder = new DataViewHolder(view);
-        return holder;
+        this.data = data;
     }
 
     @Override
-    public void onBindViewHolder(DataViewHolder dataViewHolder, int i) {
-        Data curr = data.get(i);
-        dataViewHolder.textView.setText(curr.getTitle());
-        dataViewHolder.imageView.setImageResource(curr.getIconId());
+    public DataAdapterHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(context).inflate(R.layout.drawyer_list_item,parent,false);
+        DataAdapterHolder dataAdapterHolder = new DataAdapterHolder(view);
+        //Log.d("materialDesign", "OnCreateViewHolder");
+        return dataAdapterHolder;
+    }
 
+    @Override
+    public void onBindViewHolder(DataAdapterHolder holder, int position) {
+        holder.textView.setText(data.get(position).getText());
+        holder.imageView.setImageResource(data.get(position).getImgSrc());
+        //Log.d("materialDesign", "OnBindViewHolder");
     }
 
     @Override
@@ -52,19 +50,20 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.DataViewHolder
         notifyItemRemoved(position);
     }
 
-    class DataViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
-        ImageView imageView;
-        TextView textView;
-        public DataViewHolder(View itemView) {
+    public class DataAdapterHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+        private ImageView imageView;
+        private ImageView imageViewDelete;
+        private TextView textView;
+        public DataAdapterHolder(View itemView) {
             super(itemView);
-            imageView = (ImageView) itemView.findViewById(R.id.listIcon);
-            textView = (TextView) itemView.findViewById(R.id.listText);
-            imageView.setOnClickListener(this);
+            imageView = (ImageView) itemView.findViewById(R.id.imageView);
+            textView = (TextView) itemView.findViewById(R.id.textView);
+            imageViewDelete = (ImageView) itemView.findViewById(R.id.imageViewDelete);
+            imageViewDelete.setOnClickListener(this);
         }
 
         @Override
-        public void onClick(View view) {
-            Toast.makeText( context, "Deleting item "+getPosition(), Toast.LENGTH_SHORT).show();
+        public void onClick(View v) {
             deleteData(getPosition());
         }
     }
