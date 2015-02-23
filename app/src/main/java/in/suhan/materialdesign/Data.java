@@ -1,25 +1,25 @@
 package in.suhan.materialdesign;
 
 /**
- * Created by ssaha8 on 17/02/2015.
+ * Created by suhan on 16/02/15.
  */
 public class Data {
-    public int getImgSrc() {
-        return imgSrc;
+    public int getIconId() {
+        return iconId;
     }
 
-    public void setImgSrc(int imgSrc) {
-        this.imgSrc = imgSrc;
+    public void setIconId(int iconId) {
+        this.iconId = iconId;
     }
 
-    public String getText() {
-        return text;
+    public String getTitle() {
+        return title;
     }
 
-    public void setText(String text) {
-        this.text = text;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    private int imgSrc;
-    private String text;
+    private int iconId;
+    private String title;
 }

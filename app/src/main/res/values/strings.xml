@@ -2,12 +2,21 @@
 <resources>
 
     <string name="app_name">MaterialDesign</string>
-    <string name="title_activity_main">Material Design</string>
+    <string name="title_activity_main">MainActivity</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-    <string name="title_activity_second_screen">SecondScreen</string>
+    <string name="nextText">Next</string>
+    <string name="title_activity_sub">SubActivity</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="drawer_open">Drawer Opened</string>
-    <string name="drawer_closed">Drawer Closed</string>
+    <string name="drawyer_open">Open</string>
+    <string name="drawyer_close">Close</string>
+    <string-array name="TabList">
+        <item>Home</item>
+        <item>Office</item>
+        <item>Park</item>
+        <item>Cafe</item>
+        <item>Library</item>
+        <item>Hotel</item>
+    </string-array>
 
 </resources>

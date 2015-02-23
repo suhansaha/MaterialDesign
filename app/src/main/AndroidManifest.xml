@@ -17,8 +17,8 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".SecondScreen"
-            android:label="@string/title_activity_second_screen"
+            android:name=".SubActivity"
+            android:label="@string/title_activity_sub"
             android:parentActivityName=".MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
