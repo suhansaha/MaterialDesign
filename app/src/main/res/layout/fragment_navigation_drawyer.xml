@@ -13,7 +13,7 @@
         android:background="#FB8C00">
 
         <TextView
-            android:layout_width="@dimen/app_drawyer_width"
+            android:layout_width="@dimen/drawer_width"
             android:layout_height="140dp"
             android:layout_marginBottom="16dp"
             android:layout_marginTop="50dp"

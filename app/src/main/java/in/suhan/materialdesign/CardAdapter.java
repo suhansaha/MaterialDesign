@@ -29,17 +29,19 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardAdapterHol
 
     @Override
     public CardAdapterHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
-        View view = inflater.inflate(R.layout.card_layout, viewGroup, false);
+        View view = inflater.inflate(R.layout.card_list_item, viewGroup, false);
         return new CardAdapterHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(CardAdapterHolder viewHolder, int i) {
+    public void onBindViewHolder(CardAdapterHolder viewHolder, int position) {
+        Data item = dataList.get(position);
+        viewHolder.textView.setText(item.getText());
         BitmapFactory.Options opts = new BitmapFactory.Options();
         opts.inScaled = false;
         Resources res = context.getResources();
-        viewHolder.imageView.setImageBitmap( BitmapFactory.decodeResource(res, dataList.get(i).getIconId(), opts));
-                viewHolder.textView.setText(dataList.get(i).getTitle());
+        viewHolder.imageView.setImageBitmap( BitmapFactory.decodeResource(res, item.getImgSrc(), opts));
+                
     }
 
     @Override
