@@ -109,7 +109,7 @@ public class MainActivity extends ActionBarActivity {
         if(id == R.id.navigate){
             Log.d("MaterialDesign", "Navigate Button clicked");
             Intent intent = new Intent(this, SecondScreen.class);
-            startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(this).toBundle());
+            startActivity(intent);
         }
 
         return super.onOptionsItemSelected(item);
